@@ -1,0 +1,154 @@
+@keyframes logo-grow {
+  from {
+    width: 25px;
+    opacity: 0;
+  }
+  to {
+    width: 475px;
+    opacity: 1;
+  }
+}
+
+#logo {
+  animation: logo-grow 5s forwards; /* Animation will run for 5 seconds and stay at the final state (forwards) */
+}
+
+body {
+  font-family: "Poppins", serif; /* Use Poppins with serif as a fallback */
+  background-image: url("../images/concrete_seamless.png"); /* Path to the background image */
+  background-color: #f1f1f1; /* Fallback color if the image is not available */
+  /* Additional background properties to ensure the image covers the whole background properly */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* This will space out the logo and nav elements */
+  align-items: center; /* This will vertically center items in the header */
+  /* Add any other styling that is needed to match your example */
+}
+
+.nav_links {
+  display: flex;
+  flex-direction: column;
+  list-style: none; /* Typically remove bullet points from nav list */
+  /* Add any additional flexbox properties to match your example */
+}
+
+.card > header {
+  background: #288088;
+  border: 2px solid #45adad;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  /* Add any other properties that are necessary */
+}
+
+.card {
+  flex: 0 1 450px; /* flex-grow: 0, flex-shrink: 1, flex-basis: 450px */
+  flex-direction: row;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  /* Additional styles for the card */
+}
+
+.pricing {
+  display: flex;
+  justify-content: center; /* Centers the items on the main axis */
+  align-items: center; /* Centers the items on the cross axis */
+  flex-direction: row; /* This will lay out the .card elements in a row */
+  flex-wrap: wrap; /* Allows wrapping of cards if the container's width is not enough */
+  /* Additional styles for the pricing container */
+}
+
+.gallery img {
+  border: 10px solid #50c7c7; /* Solid border with specified color */
+  margin: 10px; /* Margin on all sides */
+  width: 300px; /* Fixed width */
+  height: auto; /* To maintain aspect ratio of images */
+  flex: 0 1 auto; /* Do not grow, can shrink, and the base size will be determined by width and height */
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Allows the images to wrap onto the next line */
+  justify-content: center; /* Centers the images in the container */
+  align-items: stretch; /* Aligns items to the start of the cross axis */
+}
+
+@media screen and (min-width: 900px) {
+  header:not(main header) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Aligns the logo to the left and nav links to the right */
+    align-items: center; /* Centers items vertically */
+    position: sticky;
+    top: 0; /* Fixes the header to the top of the viewport */
+    width: 100%;
+    z-index: 1000; /* Ensures the header is above other content */
+    /* Add any other properties like background, padding, etc. as needed */
+  }
+
+  /* Navigation links layout */
+  .nav_links {
+    display: flex;
+    flex-direction: row; /* Aligns the navigation links in a row for screens wider than 900px */
+    /* Additional styling for the nav_links */
+  }
+  .card {
+    flex: 0 1 275px; /* flex-grow: 0, flex-shrink: 1, flex-basis: 275px */
+    /* Additional styles for the card */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #logo {
+    animation: none;
+  }
+}
+
+@media print {
+  body {
+    font-family: Arial, Helvetica, sans-serif; /* Set the print font */
+    background-image: none; /* Remove background images */
+  }
+
+  nav,
+  .nav_links {
+    margin: 0 auto; /* Center the navigation */
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly; /* Example of spacing out nav items */
+    /* Additional print-specific styles for navigation */
+  }
+
+  .pricing {
+    display: flex;
+    justify-content: space-around; /* This will space out the .card elements evenly */
+    align-items: flex-end; /* Aligns the items along the bottom */
+    flex-wrap: nowrap;
+    /* Additional print-specific styles for pricing */
+  }
+
+  .card {
+    border: 2px solid #45addd; /* Solid border for the card */
+    flex-basis: 325px; /* Flex basis for the card */
+    /* Additional print-specific styles for cards */
+  }
+
+  .gallery {
+    display: none; /* Hide the gallery section */
+  }
+
+  /* Assuming cards are list items, if not, adjust the selector accordingly */
+  /* Target the specific list item with the content */
+  .card ul li:nth-child(2)::after {
+    content: " 👍"; /* Add a space before the emoji to separate it from the text */
+  }
+}
