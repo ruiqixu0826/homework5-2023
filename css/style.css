@@ -38,9 +38,14 @@ header {
   /* Add any additional flexbox properties to match your example */
 }
 
-.nav_links a:visited {
-  color: inherit;
+.nav_links a {
+  color: blue; /* or any other color you want for your links */
 }
+
+.nav_links a:visited {
+  color: blue; /* same color as unvisited links */
+}
+
 
 .card > header {
   background: #288088;
