@@ -113,6 +113,9 @@ header {
     flex: 0 1 275px; /* flex-grow: 0, flex-shrink: 1, flex-basis: 275px */
     /* Additional styles for the card */
   }
+  .card > header{
+    align-items: flex-start
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
